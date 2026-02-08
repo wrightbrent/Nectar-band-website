@@ -888,6 +888,15 @@ h3 { font-size: 1.5rem; }
     }
 }
 
+/* During orientation change - prevent flickering on iOS */
+body.orientation-changing {
+    opacity: 0.99; /* Triggers GPU layer without visible change */
+}
+
+body.orientation-changing * {
+    transition-duration: 0.1s !important;
+}
+
 /* ===== iOS/Android Specific ===== */
 
 /* Prevent zoom on input focus (iOS) - inputs must be 16px+ */

@@ -262,39 +262,75 @@
             }
         });
 
-        // Handle orientation changes for tablets/phones
-        function handleOrientationChange() {
-            // Small delay to let CSS transitions complete
+        // Handle orientation changes for tablets/phones (especially iPad/iOS)
+        let lastOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+
+        function handleOrientationChange(newOrientation) {
+            // Only act if orientation actually changed
+            if (newOrientation && newOrientation === lastOrientation) return;
+            if (newOrientation) lastOrientation = newOrientation;
+
+            // Add class during transition for CSS hooks
+            document.body.classList.add('orientation-changing');
+
+            // Small delay to let iOS complete its rotation animation
             setTimeout(() => {
                 // Force layout recalculation
                 document.body.style.display = 'none';
                 document.body.offsetHeight; // Trigger reflow
                 document.body.style.display = '';
 
+                // Update CSS custom property with current orientation
+                document.documentElement.style.setProperty('--orientation', lastOrientation);
+
+                // Close mobile menu on rotation
+                document.querySelector('.nav-links').classList.remove('active');
+
+                // Remove transition class
+                document.body.classList.remove('orientation-changing');
+
                 // Scroll to top on orientation change to avoid layout issues
                 if (window.scrollY > 100) {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-            }, 100);
+            }, 300); // iOS needs more time for smooth transition
         }
 
-        // Listen for orientation changes
-        if (screen.orientation) {
-            screen.orientation.addEventListener('change', handleOrientationChange);
-        } else {
-            // Fallback for older browsers
-            window.addEventListener('orientationchange', handleOrientationChange);
+        // Method 1: matchMedia (works best on iOS/iPad)
+        const portraitQuery = window.matchMedia('(orientation: portrait)');
+        const handleMediaChange = (e) => {
+            handleOrientationChange(e.matches ? 'portrait' : 'landscape');
+        };
+        // Modern browsers
+        if (portraitQuery.addEventListener) {
+            portraitQuery.addEventListener('change', handleMediaChange);
+        } else if (portraitQuery.addListener) {
+            // Safari < 14
+            portraitQuery.addListener(handleMediaChange);
         }
 
-        // Also handle resize for desktop browser testing
+        // Method 2: orientationchange event (backup for iOS)
+        window.addEventListener('orientationchange', () => {
+            const newOrientation = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
+            handleOrientationChange(newOrientation);
+        });
+
+        // Method 3: resize with orientation detection (catches edge cases)
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Close mobile menu on resize
+                const currentOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+                if (currentOrientation !== lastOrientation) {
+                    handleOrientationChange(currentOrientation);
+                }
+                // Always close mobile menu on resize
                 document.querySelector('.nav-links').classList.remove('active');
-            }, 250);
+            }, 150);
         });
+
+        // Set initial orientation
+        document.documentElement.style.setProperty('--orientation', lastOrientation);
     </script>
 </body>
 </html>
