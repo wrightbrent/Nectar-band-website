@@ -41,11 +41,16 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 - [x] Added Reviews link to navigation on all pages
 - [x] Created GitHub repo: https://github.com/wrightbrent/Nectar-band-website
 - [x] Added iOS/Android mobile optimizations
+- [x] Set up Firestore + Cloud Function for mailing list
+- [x] Connected newsletter forms to subscribe API (all pages)
+- [x] Deployed to GCS bucket
+- [x] Integration testing passed (all endpoints working)
+- [x] Added iPad/tablet-specific CSS breakpoints (768px-1024px)
+- [x] Added orientation change handling (portrait/landscape)
+- [x] Updated viewport meta tags with `viewport-fit=cover`
 
-### PENDING
-- [ ] Set up Firestore + Cloud Function for mailing list (optional)
-- [ ] Deploy to GCS bucket
-- [ ] Verify HTTPS
+### COMPLETED
+All tasks complete! Website is live at https://nectarband.net
 
 ---
 
@@ -174,7 +179,22 @@ D:\claude-site\
 - **Touch targets**: Minimum 44x44px for buttons/links (Apple HIG)
 - **Form inputs**: 16px minimum font size (prevents iOS auto-zoom)
 - **Video controls**: iOS-specific styling fix
-- **Responsive breakpoints**: 1024px, 768px, 480px
+- **Responsive breakpoints**: 1366px, 1024px, 768px, 480px
+
+### 10. iPad/Tablet Optimizations
+- **Tablet breakpoint**: 768px-1024px with larger fonts (18px base)
+- **iPad landscape**: Optimized grid layouts (5-col for members, etc.)
+- **iPad portrait**: 2-column grids, centered member profiles
+- **Orientation handling**: CSS media queries + JavaScript handler
+- **Viewport**: Added `viewport-fit=cover` for edge-to-edge display
+- **Smooth transitions**: CSS transitions on orientation change
+- **Auto-reflow**: JavaScript handles layout recalculation on rotate
+
+### 11. Newsletter/Mailing List
+- **Firestore collection**: `subscribers`
+- **Cloud Function**: `https://us-central1-brent-wright.cloudfunctions.net/subscribe`
+- **Features**: Email validation, duplicate checking, success/error messages
+- **Connected**: All 12 HTML pages with JavaScript handlers
 
 ---
 

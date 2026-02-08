@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NECTAR - Colorado Springs Rock Band</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -260,6 +260,40 @@
                 msg.style.color = '#ff3333';
                 msg.textContent = 'Error. Please try again.';
             }
+        });
+
+        // Handle orientation changes for tablets/phones
+        function handleOrientationChange() {
+            // Small delay to let CSS transitions complete
+            setTimeout(() => {
+                // Force layout recalculation
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.display = '';
+
+                // Scroll to top on orientation change to avoid layout issues
+                if (window.scrollY > 100) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        // Listen for orientation changes
+        if (screen.orientation) {
+            screen.orientation.addEventListener('change', handleOrientationChange);
+        } else {
+            // Fallback for older browsers
+            window.addEventListener('orientationchange', handleOrientationChange);
+        }
+
+        // Also handle resize for desktop browser testing
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Close mobile menu on resize
+                document.querySelector('.nav-links').classList.remove('active');
+            }, 250);
         });
     </script>
 </body>
