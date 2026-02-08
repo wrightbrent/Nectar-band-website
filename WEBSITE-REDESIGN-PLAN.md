@@ -185,10 +185,16 @@ D:\claude-site\
 - **Tablet breakpoint**: 768px-1024px with larger fonts (18px base)
 - **iPad landscape**: Optimized grid layouts (5-col for members, etc.)
 - **iPad portrait**: 2-column grids, centered member profiles
-- **Orientation handling**: CSS media queries + JavaScript handler
 - **Viewport**: Added `viewport-fit=cover` for edge-to-edge display
 - **Smooth transitions**: CSS transitions on orientation change
 - **Auto-reflow**: JavaScript handles layout recalculation on rotate
+- **iOS Orientation Detection** (3 methods for reliability):
+  1. `matchMedia('(orientation: portrait)')` - best iOS Safari support
+  2. `orientationchange` event with `window.orientation` - iOS backup
+  3. `resize` event with width/height comparison - catches edge cases
+- **Orientation state tracking**: Prevents duplicate triggers
+- **300ms transition delay**: Allows iOS rotation animation to complete
+- **CSS `.orientation-changing` class**: Smooth visual transitions during rotate
 
 ### 11. Newsletter/Mailing List
 - **Firestore collection**: `subscribers`
