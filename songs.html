@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs - NECTAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="NECTAR">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="songs.html" class="active">Songs</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos/gallery.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Song List</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> / Songs</p>
+    </header>
+
+    <!-- Search/Filter -->
+    <section class="section" style="padding-bottom: 0;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <input type="text" id="songSearch" placeholder="Search songs or artists..."
+                   style="width: 100%; padding: 1rem; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 1rem;">
+        </div>
+    </section>
+
+    <!-- Song List -->
+    <section class="section">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <ul class="song-list" id="songList">
+                <li class="song-item"><span class="artist">4 Non-Blondes</span> <span class="title">What's Up</span></li>
+                <li class="song-item"><span class="artist">Aerosmith</span> <span class="title">Come Together</span></li>
+                <li class="song-item"><span class="artist">Alanis Morissette</span> <span class="title">You Oughta Know</span></li>
+                <li class="song-item"><span class="artist">Alice in Chains</span> <span class="title">Man in the Box</span></li>
+                <li class="song-item"><span class="artist">Alice in Chains</span> <span class="title">Would</span></li>
+                <li class="song-item"><span class="artist">Black Sabbath</span> <span class="title">Heaven and Hell</span></li>
+                <li class="song-item"><span class="artist">Bon Jovi</span> <span class="title">Livin' on a Prayer</span></li>
+                <li class="song-item"><span class="artist">Bon Jovi</span> <span class="title">Wanted Dead or Alive</span></li>
+                <li class="song-item"><span class="artist">Bryan Adams</span> <span class="title">Heaven</span></li>
+                <li class="song-item"><span class="artist">Candlebox</span> <span class="title">Far Behind</span></li>
+                <li class="song-item"><span class="artist">Cheap Trick</span> <span class="title">I Want You to Want Me</span></li>
+                <li class="song-item"><span class="artist">Cinderella</span> <span class="title">Nobody's Fool</span></li>
+                <li class="song-item"><span class="artist">Collective Soul</span> <span class="title">Shine</span></li>
+                <li class="song-item"><span class="artist">Concrete Blonde</span> <span class="title">Bloodletting</span></li>
+                <li class="song-item"><span class="artist">Cranberries</span> <span class="title">Zombie</span></li>
+                <li class="song-item"><span class="artist">Evanescence</span> <span class="title">Bring Me to Life</span></li>
+                <li class="song-item"><span class="artist">Fleetwood Mac</span> <span class="title">Dreams</span></li>
+                <li class="song-item"><span class="artist">Foo Fighters</span> <span class="title">The Pretender</span></li>
+                <li class="song-item"><span class="artist">Gnarls Barkley</span> <span class="title">Crazy</span></li>
+                <li class="song-item"><span class="artist">Greta Van Fleet</span> <span class="title">Black Smoke Rising</span></li>
+                <li class="song-item"><span class="artist">Halestorm (Heart)</span> <span class="title">All I Wanna Do Is Make Love to You</span></li>
+                <li class="song-item"><span class="artist">Halestorm (DIO)</span> <span class="title">Straight Through the Heart</span></li>
+                <li class="song-item"><span class="artist">Heart</span> <span class="title">Barracuda</span></li>
+                <li class="song-item"><span class="artist">HIM</span> <span class="title">Wicked Game</span></li>
+                <li class="song-item"><span class="artist">In This Moment (Blondie)</span> <span class="title">Call Me</span></li>
+                <li class="song-item"><span class="artist">Iron Maiden</span> <span class="title">The Trooper</span></li>
+                <li class="song-item"><span class="artist">Jefferson Airplane</span> <span class="title">White Rabbit</span></li>
+                <li class="song-item"><span class="artist">Joe Walsh</span> <span class="title">Rocky Mountain Way</span></li>
+                <li class="song-item"><span class="artist">KISS</span> <span class="title">Detroit Rock City</span></li>
+                <li class="song-item"><span class="artist">KISS</span> <span class="title">Love Gun</span></li>
+                <li class="song-item"><span class="artist">Led Zeppelin</span> <span class="title">Immigrant Song</span></li>
+                <li class="song-item"><span class="artist">Led Zeppelin</span> <span class="title">Rock and Roll</span></li>
+                <li class="song-item"><span class="artist">Led Zeppelin</span> <span class="title">The Ocean</span></li>
+                <li class="song-item"><span class="artist">Lita Ford</span> <span class="title">Kiss Me Deadly</span></li>
+                <li class="song-item"><span class="artist">Melissa Etheridge</span> <span class="title">I'm the Only One</span></li>
+                <li class="song-item"><span class="artist">Metallica</span> <span class="title">Breadfan</span></li>
+                <li class="song-item"><span class="artist">Metallica</span> <span class="title">Enter Sandman</span></li>
+                <li class="song-item"><span class="artist">Motley Crue</span> <span class="title">Home Sweet Home</span></li>
+                <li class="song-item"><span class="artist">Ozzy Osbourne</span> <span class="title">Crazy Train</span></li>
+                <li class="song-item"><span class="artist">Ozzy Osbourne</span> <span class="title">Shot in the Dark</span></li>
+                <li class="song-item"><span class="artist">Pat Benatar</span> <span class="title">Heartbreaker</span></li>
+                <li class="song-item"><span class="artist">Pretty Reckless</span> <span class="title">Take Me Down</span></li>
+                <li class="song-item"><span class="artist">Seether (George Michael)</span> <span class="title">Careless Whisper</span></li>
+                <li class="song-item"><span class="artist">State of Mine (Garth Brooks)</span> <span class="title">Thunder Rolls</span></li>
+                <li class="song-item"><span class="artist">Ted Nugent</span> <span class="title">Stranglehold</span></li>
+                <li class="song-item"><span class="artist">Van Halen</span> <span class="title">Panama</span></li>
+            </ul>
+            <p id="noResults" style="display: none; text-align: center; color: var(--text-muted); padding: 2rem;">
+                No songs found matching your search.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NECTAR</h4>
+                <p>Colorado Springs rock cover band playing your favorites from the 70s through today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NECTAR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Song search functionality
+        document.getElementById('songSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const songs = document.querySelectorAll('.song-item');
+            let visibleCount = 0;
+
+            songs.forEach(song => {
+                const text = song.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    song.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    song.style.display = 'none';
+                }
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

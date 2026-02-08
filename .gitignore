@@ -1,0 +1,13 @@
+# Media files
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# Lyrics
+lyrics/
+
+# OS files
+.DS_Store
+Thumbs.db

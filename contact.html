@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NECTAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="NECTAR">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos/gallery.html">Photos</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Contact Us</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> / Contact</p>
+    </header>
+
+    <!-- Contact Form -->
+    <section class="section">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto;">
+
+            <!-- Form -->
+            <div>
+                <h2 style="margin-bottom: 2rem;">Get in Touch</h2>
+                <form class="contact-form" action="https://formspree.io/f/xzdabyqk" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="booking">Booking Inquiry</option>
+                            <option value="press">Press / Media</option>
+                            <option value="general">General Question</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Info -->
+            <div>
+                <h2 style="margin-bottom: 2rem;">Booking Info</h2>
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Book NECTAR</h4>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Looking to book NECTAR for your venue, private event, or festival?
+                        We're available throughout Colorado and bring high-energy rock covers
+                        that get crowds moving.
+                    </p>
+                </div>
+
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">What We Offer</h4>
+                    <ul style="color: var(--text-muted); line-height: 2; list-style: none;">
+                        <li>Full live band experience</li>
+                        <li>3-4 hour set options</li>
+                        <li>Professional sound equipment</li>
+                        <li>40+ song catalog</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Follow Us</h4>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                        <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NECTAR</h4>
+                <p>Colorado Springs rock cover band playing your favorites from the 70s through today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NECTAR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+
+    <style>
+        @media (max-width: 768px) {
+            .section > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</body>
+</html>

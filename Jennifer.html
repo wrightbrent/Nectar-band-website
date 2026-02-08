@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer - Lead Vocals - NECTAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="NECTAR">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos/gallery.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Jennifer Laubach</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> / <a href="about.html">About</a> / Jennifer</p>
+    </header>
+
+    <!-- Member Profile -->
+    <section class="section">
+        <div class="member-profile" style="max-width: 900px; margin: 0 auto;">
+            <div>
+                <img src="jen.jpg" alt="Jennifer" class="photo">
+            </div>
+            <div>
+                <h2 style="color: var(--accent); margin-bottom: 0.5rem;">Lead Vocals</h2>
+                <div class="bio">
+                    <p>
+                        A founding member of Nectar, Jennifer brings the ability to cover a wide array
+                        of musical selections from sultry selections from Melissa Etheridge to bangers
+                        from Iron Maiden while also doing justice to songs by Ann Wilson from Heart.
+                        "Jenn" delivers them with a style all her own, giving NECTAR its unique style.
+                    </p>
+                </div>
+                <a href="about.html" class="btn btn-outline" style="margin-top: 2rem;">Back to Band</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NECTAR</h4>
+                <p>Colorado Springs rock cover band playing your favorites from the 70s through today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <!-- Easter Egg: Click copyright to access karaoke mode -->
+            <p><a href="karaoke.html" style="color: var(--text-muted); text-decoration: none;">&copy; 2026 NECTAR</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
