@@ -32,6 +32,13 @@
         </div>
     </nav>
 
+    <!-- Reviews Ticker -->
+    <div class="reviews-ticker" id="reviewsTicker">
+        <div class="ticker-content" id="tickerContent">
+            <span class="ticker-loading">Loading reviews...</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -43,13 +50,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Reviews Ticker -->
-    <div class="reviews-ticker" id="reviewsTicker">
-        <div class="ticker-content" id="tickerContent">
-            <span class="ticker-loading">Loading reviews...</span>
-        </div>
-    </div>
 
     <!-- Featured Video Section -->
     <section class="section">
@@ -154,6 +154,7 @@
             padding: 1rem 0;
             overflow: hidden;
             white-space: nowrap;
+            margin-top: 70px; /* Account for fixed navbar */
         }
         .ticker-content {
             display: inline-block;

@@ -75,7 +75,7 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 
 ```
 D:\claude-site\
-├── index.html              - Home (logo hero, reviews ticker, featured video, next show, band preview)
+├── index.html              - Home (reviews ticker, logo hero, featured video, next show, band preview)
 ├── about.html              - Band bio + member grid
 ├── events.html             - Upcoming & past events
 ├── songs.html              - Searchable song list (46 songs)
@@ -160,7 +160,7 @@ D:\claude-site\
 - **Public Page** (`reviews.html`): Submit reviews (name + text)
 - **Admin Page** (`admin-reviews.html`): Manage/delete reviews
 - **Easter Egg**: Click "2026" year in footer on reviews page to access admin
-- **Home Page Ticker**: Scrolling marquee of reviews below hero
+- **Home Page Ticker**: Scrolling marquee of reviews above hero (below navbar)
 - **Backend**:
   - Firestore database (collection: `reviews`)
   - Cloud Function: `https://us-central1-brent-wright.cloudfunctions.net/reviews`
