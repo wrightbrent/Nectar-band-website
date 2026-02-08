@@ -49,8 +49,8 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 - [x] Added orientation change handling (portrait/landscape)
 - [x] Updated viewport meta tags with `viewport-fit=cover`
 
-### COMPLETED
-All tasks complete! Website is live at https://nectarband.net
+### STATUS: ALL COMPLETE
+Website is live at https://nectarband.net
 
 ---
 
@@ -127,7 +127,8 @@ D:\claude-site\
 
 ### 3. Mailing List Signup
 - Email signup form in footer (all pages)
-- Ready for Firestore/Cloud Function backend
+- **Backend**: Firestore + Cloud Function (deployed and working)
+- **Endpoint**: `https://us-central1-brent-wright.cloudfunctions.net/subscribe`
 
 ### 4. Responsive Navigation
 - Fixed header with logo + nav links
@@ -216,49 +217,47 @@ D:\claude-site\
 
 ## Remaining Tasks
 
-### Before Deployment
-1. ~~**Formspree Setup**: Create account and get form ID for contact.html~~ ✓ DONE
-2. ~~**Social Media URLs**: Replace placeholder links with real URLs~~ ✓ DONE
-3. **Firestore Setup** (optional): For mailing list backend
-4. **Test all pages**: Local browser testing
-5. **Mobile testing**: Responsive design verification
+**ALL TASKS COMPLETE!**
 
-### Deployment
+### Completed Checklist
+- [x] Formspree Setup (ID: xzdabyqk)
+- [x] Social Media URLs (Facebook + YouTube)
+- [x] Firestore + Cloud Functions for mailing list
+- [x] Firestore + Cloud Functions for reviews
+- [x] All pages tested
+- [x] Mobile/tablet testing
+- [x] iPad orientation handling
+- [x] Deployed to GCS bucket
+- [x] HTTPS verified working
+- [x] Integration tests passed
+
+### Deployment Command (for future updates)
 ```bash
-# Sync to GCS bucket
-gsutil -m rsync -r "D:\claude-site" gs://nectarband.net
-
-# Or from WSL
-source ~/google-cloud-sdk/path.bash.inc
-gsutil -m rsync -r /mnt/d/claude-site gs://nectarband.net
+# From Windows Command Prompt
+gsutil -m cp C:\Users\brent\claude-site\*.html C:\Users\brent\claude-site\*.css gs://nectarband.net/
 ```
-
-### Post-Deployment
-1. Verify https://nectarband.net loads correctly
-2. Test all navigation links
-3. Test contact form submission
-4. Test mailing list signup
-5. Check mobile responsiveness
 
 ---
 
-## GCP Backend Setup (for Mailing List)
+## GCP Backend (Deployed)
 
-### Firestore Collection
-- Collection: `subscribers`
-- Document fields: `email`, `subscribed_at`, `source`
+### Firestore Collections
+1. **`subscribers`** - Mailing list
+   - Fields: `email`, `subscribedAt`, `source`
+2. **`reviews`** - Visitor reviews
+   - Fields: `name`, `review`, `createdAt`
 
-### Cloud Function
-- HTTP trigger for form submissions
-- Validates email format
-- Stores in Firestore
-- Returns success/error JSON
+### Cloud Functions (Live)
+1. **Subscribe**: `https://us-central1-brent-wright.cloudfunctions.net/subscribe`
+   - POST: Add email to mailing list
+2. **Reviews**: `https://us-central1-brent-wright.cloudfunctions.net/reviews`
+   - GET: List all reviews
+   - POST: Submit new review
+   - DELETE: Remove review (admin)
 
-### Deployment Commands
-```bash
-gcloud firestore databases create --location=us-central1
-gcloud functions deploy subscribeEmail --runtime=nodejs20 --trigger-http --allow-unauthenticated
-```
+### Project
+- GCP Project: `brent-wright`
+- Region: `us-central1`
 
 ---
 
