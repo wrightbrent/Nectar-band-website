@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - NECTAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="NECTAR">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos/gallery.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Leave a Review</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> / Reviews</p>
+    </header>
+
+    <!-- Review Form -->
+    <section class="section">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <form id="reviewForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required maxlength="100" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="review">What did you think?</label>
+                    <textarea id="review" name="review" required maxlength="500" placeholder="Tell us about your experience..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Review</button>
+            </form>
+
+            <div id="successMessage" style="display: none; text-align: center; padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--accent); margin-top: 2rem;">
+                <h3 style="color: var(--accent);">Thank You!</h3>
+                <p style="color: var(--text-muted);">Your review has been submitted.</p>
+            </div>
+
+            <div id="errorMessage" style="display: none; text-align: center; padding: 2rem; background: var(--bg-secondary); border: 1px solid #ff3333; margin-top: 2rem;">
+                <h3 style="color: #ff3333;">Oops!</h3>
+                <p style="color: var(--text-muted);">Something went wrong. Please try again.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Reviews -->
+    <section class="section" style="background: var(--bg-secondary); max-width: 100%; padding: 5rem 2rem;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div id="reviewsList">
+                <p style="text-align: center; color: var(--text-muted);">Loading reviews...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NECTAR</h4>
+                <p>Colorado Springs rock cover band playing your favorites from the 70s through today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <a href="admin-reviews.html" style="color: var(--text-muted); text-decoration: none;">2026</a> NECTAR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .review-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .review-card .review-name {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-card .review-text {
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .review-card .review-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+
+    <script>
+        const API_URL = 'https://us-central1-brent-wright.cloudfunctions.net/reviews';
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Load reviews
+        async function loadReviews() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                const reviewsList = document.getElementById('reviewsList');
+
+                if (data.reviews && data.reviews.length > 0) {
+                    reviewsList.innerHTML = data.reviews.map(review => `
+                        <div class="review-card">
+                            <div class="review-name">${escapeHtml(review.name)}</div>
+                            <div class="review-text">"${escapeHtml(review.review)}"</div>
+                            <div class="review-date">${formatDate(review.createdAt)}</div>
+                        </div>
+                    `).join('');
+                } else {
+                    reviewsList.innerHTML = '<p style="text-align: center; color: var(--text-muted);">No reviews yet. Be the first!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+                document.getElementById('reviewsList').innerHTML = '<p style="text-align: center; color: var(--text-muted);">Unable to load reviews.</p>';
+            }
+        }
+
+        // Submit review
+        document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const review = document.getElementById('review').value.trim();
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, review })
+                });
+
+                if (response.ok) {
+                    document.getElementById('reviewForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    loadReviews();
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error submitting review:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+
+        // Helper functions
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        // Load reviews on page load
+        loadReviews();
+    </script>
+</body>
+</html>

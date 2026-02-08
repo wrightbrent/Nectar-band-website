@@ -6,7 +6,7 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 **Source**: `D:\original-site`
 **Target**: `D:\claude-site`
 **Live Site**: https://nectarband.net (GCS bucket: gs://nectarband.net)
-**Last Updated**: 2026-02-07
+**Last Updated**: 2026-02-08
 
 ---
 
@@ -33,9 +33,16 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 - [x] Fixed video cropping with `.featured` class for home page video
 - [x] Added social media URLs (Facebook, YouTube)
 - [x] Removed Instagram placeholder (no account)
+- [x] Created `reviews.html` for visitor reviews
+- [x] Created `admin-reviews.html` (hidden admin page)
+- [x] Added reviews ticker to home page
+- [x] Set up Firestore database for reviews
+- [x] Deployed Cloud Function for reviews API
+- [x] Added Reviews link to navigation on all pages
+- [x] Created GitHub repo: https://github.com/wrightbrent/Nectar-band-website
 
 ### PENDING
-- [ ] Set up Firestore + Cloud Function for mailing list
+- [ ] Set up Firestore + Cloud Function for mailing list (optional)
 - [ ] Deploy to GCS bucket
 - [ ] Verify HTTPS
 
@@ -67,12 +74,14 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 
 ```
 D:\claude-site\
-├── index.html              - Home (logo hero, featured video, next show, band preview)
+├── index.html              - Home (logo hero, reviews ticker, featured video, next show, band preview)
 ├── about.html              - Band bio + member grid
 ├── events.html             - Upcoming & past events
 ├── songs.html              - Searchable song list (46 songs)
-├── videos.html             - Video gallery (29 videos in 3 sections)
+├── videos.html             - Video gallery (28 videos in 3 sections)
 ├── contact.html            - Contact form + booking info
+├── reviews.html            - Public reviews page (submit + view)
+├── admin-reviews.html      - Hidden admin page (manage reviews)
 ├── karaoke.html            - Hidden karaoke mode (easter egg)
 ├── styles.css              - Shared stylesheet
 ├── Jennifer.html           - Lead vocals (has secret karaoke link)
@@ -146,6 +155,17 @@ D:\claude-site\
 - Alphabetically sorted
 - Added: Bon Jovi - Livin' on a Prayer, Lita Ford - Kiss Me Deadly
 
+### 8. Reviews System
+- **Public Page** (`reviews.html`): Submit reviews (name + text)
+- **Admin Page** (`admin-reviews.html`): Manage/delete reviews
+- **Easter Egg**: Click "2026" year in footer on reviews page to access admin
+- **Home Page Ticker**: Scrolling marquee of reviews below hero
+- **Backend**:
+  - Firestore database (collection: `reviews`)
+  - Cloud Function: `https://us-central1-brent-wright.cloudfunctions.net/reviews`
+  - Auto-approves all submissions
+  - Supports GET (list), POST (submit), DELETE (remove)
+
 ---
 
 ## Bugs Fixed
@@ -216,3 +236,5 @@ gcloud functions deploy subscribeEmail --runtime=nodejs20 --trigger-http --allow
 - **Lyrics Format**: HTML files with styled verses
 - **Videos**: 28 included (Zombie removed due to codec issue), organized by venue/date
 - **Featured Video**: Motley Crue - Home Sweet Home (on home page)
+- **Reviews**: Firestore + Cloud Functions (auto-approve, admin can delete)
+- **GitHub Repo**: https://github.com/wrightbrent/Nectar-band-website
