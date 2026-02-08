@@ -134,10 +134,11 @@
             </div>
             <div class="footer-section">
                 <h4>Stay Updated</h4>
-                <form class="newsletter-form" action="#" method="POST">
-                    <input type="email" placeholder="Your email" required>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
                     <button type="submit">Join</button>
                 </form>
+                <p id="newsletterMsg" style="display:none; margin-top:0.5rem; font-size:0.85rem;"></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -238,6 +239,28 @@
         }
 
         loadTickerReviews();
+
+        // Newsletter signup
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            const msg = document.getElementById('newsletterMsg');
+            try {
+                const res = await fetch('https://us-central1-brent-wright.cloudfunctions.net/subscribe', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+                msg.style.display = 'block';
+                msg.style.color = '#ff6600';
+                msg.textContent = data.message || 'Subscribed!';
+                document.getElementById('newsletterEmail').value = '';
+            } catch (err) {
+                msg.style.display = 'block';
+                msg.style.color = '#ff3333';
+                msg.textContent = 'Error. Please try again.';
+            }
+        });
     </script>
 </body>
 </html>
