@@ -40,6 +40,7 @@ Full redesign of nectarband.net with modern dark/edgy aesthetic, new features, a
 - [x] Deployed Cloud Function for reviews API
 - [x] Added Reviews link to navigation on all pages
 - [x] Created GitHub repo: https://github.com/wrightbrent/Nectar-band-website
+- [x] Added iOS/Android mobile optimizations
 
 ### PENDING
 - [ ] Set up Firestore + Cloud Function for mailing list (optional)
@@ -165,6 +166,15 @@ D:\claude-site\
   - Cloud Function: `https://us-central1-brent-wright.cloudfunctions.net/reviews`
   - Auto-approves all submissions
   - Supports GET (list), POST (submit), DELETE (remove)
+
+### 9. iOS/Android Mobile Optimizations
+- **Font smoothing**: `-webkit-font-smoothing: antialiased`
+- **Touch handling**: Disabled double-tap zoom, removed tap highlight
+- **Safe area support**: Padding for iPhone notch (X and later)
+- **Touch targets**: Minimum 44x44px for buttons/links (Apple HIG)
+- **Form inputs**: 16px minimum font size (prevents iOS auto-zoom)
+- **Video controls**: iOS-specific styling fix
+- **Responsive breakpoints**: 1024px, 768px, 480px
 
 ---
 

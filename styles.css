@@ -23,6 +23,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape on iOS */
 }
 
 body {
@@ -31,6 +32,14 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on iOS/macOS */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS/Android touch optimizations */
+a, button, .btn, .menu-toggle {
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    touch-action: manipulation; /* Disable double-tap zoom */
 }
 
 a {
@@ -695,4 +704,61 @@ h3 { font-size: 1.5rem; }
     .newsletter-form {
         flex-direction: column;
     }
+}
+
+/* ===== iOS/Android Specific ===== */
+
+/* Prevent zoom on input focus (iOS) - inputs must be 16px+ */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Safe area support for notched phones (iPhone X+, Android) */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .footer-bottom {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    }
+
+    .navbar {
+        padding-left: calc(1rem + env(safe-area-inset-left));
+        padding-right: calc(1rem + env(safe-area-inset-right));
+    }
+}
+
+/* Minimum touch target sizes (44x44px recommended) */
+@media (max-width: 768px) {
+    .btn, button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-links a {
+        padding: 0.75rem 0;
+        display: block;
+    }
+
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Smooth scrolling for iOS */
+.nav-links {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for iOS video controls */
+video::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.5);
 }
