@@ -166,7 +166,7 @@ D:\claude-site\
 - **Public Page** (`reviews.html`): Submit reviews (name + text)
 - **Admin Page** (`admin-reviews.html`): Manage/delete reviews
 - **Easter Egg**: Click "2026" year in footer on reviews page to access admin
-- **Home Page Ticker**: Scrolling marquee of reviews above hero (below navbar)
+- **Home Page Ticker**: Scrolling marquee of reviews above hero (below navbar), 2x speed
 - **Backend**:
   - Firestore database (collection: `reviews`)
   - Cloud Function: `https://us-central1-brent-wright.cloudfunctions.net/reviews`

@@ -159,7 +159,7 @@
         }
         .ticker-content {
             display: inline-block;
-            animation: ticker 30s linear infinite;
+            animation: ticker 15s linear infinite;
         }
         .ticker-content:hover {
             animation-play-state: paused;
@@ -219,7 +219,7 @@
 
                     // Adjust animation duration based on content length
                     const contentWidth = tickerContent.scrollWidth / 2;
-                    const duration = Math.max(20, contentWidth / 50);
+                    const duration = Math.max(10, contentWidth / 100);
                     tickerContent.style.animationDuration = duration + 's';
                 } else {
                     tickerContent.innerHTML = '<a href="reviews.html" class="ticker-cta">Be the first to leave a review!</a>';
