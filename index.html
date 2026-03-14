@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NECTAR - Colorado Springs Rock Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="NECTAR">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos/gallery.html">Photos</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Reviews Ticker -->
+    <div class="reviews-ticker" id="reviewsTicker">
+        <div class="ticker-content" id="tickerContent">
+            <span class="ticker-loading">Loading reviews...</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.jpg" alt="NECTAR" style="max-width: 400px; height: auto; margin-bottom: 1.5rem;">
+            <p class="tagline">Rock covers from the 70s through today. Based in Colorado Springs, CO.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="events.html" class="btn btn-primary">Upcoming Shows</a>
+                <a href="videos.html" class="btn btn-outline">Watch Us Play</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Video Section -->
+    <section class="section">
+        <h2 class="section-title">Latest Performance</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="video-card featured">
+                <video controls poster="band-photo.jpg">
+                    <source src="2024_homesweethome.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-info">
+                    <h4>Motley Crue - Home Sweet Home</h4>
+                    <p class="venue">Live Performance 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Show -->
+    <section class="section" style="background: var(--bg-secondary); max-width: 100%; padding: 5rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Next Show</h2>
+            <div class="event-card" style="max-width: 700px; margin: 0 auto;">
+                <div class="event-date">
+                    <div class="day">9</div>
+                    <div class="month">Aug</div>
+                </div>
+                <div class="event-details">
+                    <h3>NECTAR at The Townhouse Sports Grill</h3>
+                    <p class="location">907 Manitou Avenue, Manitou Springs, CO 80829</p>
+                    <a href="https://www.facebook.com/share/1AHYZD8aF9/" target="_blank" class="btn btn-primary">View Event</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Band Preview -->
+    <section class="section">
+        <h2 class="section-title">Meet the Band</h2>
+        <div class="grid grid-5">
+            <a href="Jennifer.html" class="member-card">
+                <img src="jen.jpg" alt="Jennifer">
+                <h3>Jennifer</h3>
+                <p class="role">Lead Vocals</p>
+            </a>
+            <a href="Aaron.html" class="member-card">
+                <img src="Aaron.jpeg" alt="Aaron">
+                <h3>Aaron</h3>
+                <p class="role">Guitar</p>
+            </a>
+            <a href="John.html" class="member-card">
+                <img src="john.jpeg" alt="John">
+                <h3>John</h3>
+                <p class="role">Drums</p>
+            </a>
+            <a href="Pat.html" class="member-card">
+                <img src="pat.jpeg" alt="Pat">
+                <h3>Pat</h3>
+                <p class="role">Bass</p>
+            </a>
+            <a href="Brent.html" class="member-card">
+                <img src="Brent.jpg" alt="Brent">
+                <h3>Brent</h3>
+                <p class="role">Guitar/Keys</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NECTAR</h4>
+                <p>Colorado Springs rock cover band playing your favorites from the 70s through today.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/NectarCol/" title="Facebook" target="_blank">FB</a>
+                    <a href="https://www.youtube.com/@brentwright6209" title="YouTube" target="_blank">YT</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+                <p id="newsletterMsg" style="display:none; margin-top:0.5rem; font-size:0.85rem;"></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NECTAR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Ticker Styles -->
+    <style>
+        .reviews-ticker {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 70px; /* Account for fixed navbar */
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-content:hover {
+            animation-play-state: paused;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 3rem;
+        }
+        .ticker-item .ticker-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .ticker-item .ticker-text {
+            color: var(--text-primary);
+        }
+        .ticker-loading {
+            color: var(--text-muted);
+            padding: 0 2rem;
+        }
+        .ticker-cta {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0 2rem;
+        }
+        .ticker-cta:hover {
+            text-decoration: underline;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Load reviews for ticker
+        async function loadTickerReviews() {
+            const API_URL = 'https://us-central1-brent-wright.cloudfunctions.net/reviews';
+            const tickerContent = document.getElementById('tickerContent');
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.reviews && data.reviews.length > 0) {
+                    // Shuffle reviews randomly
+                    const shuffled = data.reviews.sort(() => Math.random() - 0.5);
+                    // Create ticker items (duplicate for seamless loop)
+                    const items = shuffled.slice(0, 10).map(review =>
+                        `<span class="ticker-item"><span class="ticker-name">${escapeHtml(review.name)}:</span> <span class="ticker-text">"${escapeHtml(review.review)}"</span></span>`
+                    ).join('');
+
+                    // Duplicate content for seamless scrolling
+                    tickerContent.innerHTML = items + items;
+
+                    // Adjust animation duration based on content length
+                    const contentWidth = tickerContent.scrollWidth / 2;
+                    const duration = Math.max(20, contentWidth / 50);
+                    tickerContent.style.animationDuration = duration + 's';
+                } else {
+                    tickerContent.innerHTML = '<a href="reviews.html" class="ticker-cta">Be the first to leave a review!</a>';
+                    tickerContent.style.animation = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading ticker reviews:', error);
+                tickerContent.innerHTML = '<a href="reviews.html" class="ticker-cta">Leave us a review!</a>';
+                tickerContent.style.animation = 'none';
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        loadTickerReviews();
+
+        // Newsletter signup
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            const msg = document.getElementById('newsletterMsg');
+            try {
+                const res = await fetch('https://us-central1-brent-wright.cloudfunctions.net/subscribe', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+                msg.style.display = 'block';
+                msg.style.color = '#ff6600';
+                msg.textContent = data.message || 'Subscribed!';
+                document.getElementById('newsletterEmail').value = '';
+            } catch (err) {
+                msg.style.display = 'block';
+                msg.style.color = '#ff3333';
+                msg.textContent = 'Error. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
