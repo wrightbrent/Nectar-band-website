@@ -209,8 +209,12 @@
                 const data = await response.json();
 
                 if (data.reviews && data.reviews.length > 0) {
-                    // Shuffle reviews randomly
-                    const shuffled = data.reviews.sort(() => Math.random() - 0.5);
+                    // Shuffle reviews randomly (Fisher-Yates)
+                    const shuffled = [...data.reviews];
+                    for (let i = shuffled.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                    }
                     // Create ticker items (duplicate for seamless loop)
                     const items = shuffled.slice(0, 10).map(review =>
                         `<span class="ticker-item"><span class="ticker-name">${escapeHtml(review.name)}:</span> <span class="ticker-text">"${escapeHtml(review.review)}"</span></span>`
